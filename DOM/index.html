@@ -3,19 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <title>Document Object Model (DOM)</title>
-    <style>
-        .bg-block{
-            background-color: black;
-            color: white;
-        }
-    </style>
+    <!-- node list me for each loop lagta hai html collection me loop nahi lagta usko array me convert karna padhta hai -->
 </head>
-<body class="bg-block">
-    <div>
-        <h1 class="heading" id="title-tag">DOM Learnign on chai and code <span>test text</span></h1>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-        <h2>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</h2>
-        <h2>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</h2>
-    </div>
+<body style="background-color: black; color: white;">
+   <!-- <div class="parent">
+    <div class="day">Monday</div>
+    <div class="day">Tuesday</div>
+    <div class="day">Wednusday</div>
+    <div class="day">Thurday</div>
+   </div> -->
+
+   <ul class="language">
+    <li>javascript</li>
+   </ul>
 </body>
+<script>
+    // const parent = document.querySelector('.parent')
+    //console.log(parent.children[1].innerHTML)
+
+    // for(let i=0; i<parent.children.length; i++){
+    //     console.log(parent.children[i].innerHTML);
+    // }
+
+    // parent to child
+    // parent.children[1].style.backgroundColor = "orange"
+    // console.log(parent.firstElementChild);
+    // console.log(parent.lastElementChild);
+    
+    // const day1 = document.querySelector('.day')
+    // console.log(day1);
+    // console.log(day1.parentElement)
+    // console.log(day1.nextElementSibling);
+    // console.log("NODES: ", parent.childNodes);
+    /*
+    const diva = document.createElement('div')
+    diva.className = "main"
+    diva.id = Math.round(Math.random() * 10 + 1)
+    diva.setAttribute("title", 'generate a title')
+    diva.style.backgroundColor = "green"
+    diva.style.padding = "12px"
+    //diva.innerText = "Chai aur code"
+    console.log(diva);
+
+    const addText = document.createTextNode("chai aur code")
+    diva.appendChild(addText)
+
+    // attaching that div to DOM TREE
+    document.body.appendChild(diva)
+    */
+
+    // adding list into language list
+    function addLanguage(langName){
+        const list = document.createElement('li')
+        list.innerHTML = `${langName}`
+        list.style.backgroundColor = "green"
+        list.style.display = "inline"
+        document.querySelector('.language').appendChild(list)
+    }
+
+    function addOptiLanguage(langName){
+        const list = document.createElement('li')
+        list.appendChild(document.createTextNode(langName))
+        list.style.color = "orange"
+        document.querySelector('.language').appendChild(list)
+    }
+
+    addLanguage("python")
+    addOptiLanguage("typescript")
+
+    // editing elements
+    // apppending a new element into existing one
+    const secondLang = document.querySelector("li:nth-child(2)")
+
+    const newLi = document.createElement('li')
+    newLi.textContent = "Mojo"
+    secondLang.replaceWith(newLi)
+
+    // changing outer html
+    const firstLang = document.querySelector("li:first-child")
+    firstLang.outerHTML = '<li>C++</li>'
+
+    // removing elements
+    const lastLang = document.querySelector('li:last-child')
+    lastLang.remove()
+
+</script>
 </html>
