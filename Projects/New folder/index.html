@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <H1>chai aur javascript</H1>
+    <button id="stop">Stop</button>
+    <button id="start">Start</button>
+</body>
+<script>
+
+    // const changeText = function(){
+    //     document.querySelector('h1').innerHTML = "best JS series"
+    //     setTimeout(() => {
+    //         document.querySelector('h1').innerHTML = "it's on sale"
+    //         setTimeout(() => {
+    //             document.querySelector('h1').innerHTML = "chai aur code";
+    //             changeText()
+    //         }, 2000);
+    //     }, 2000);
+    // }
+
+
+    // const changeText = function(){
+    //     document.querySelector('h1').innerHTML = "best JS series"
+    // }
+    // const changeMe = setTimeout(changeText, 2000);
+
+    
+
+    // document.querySelector('#stop').addEventListener('click', function(){
+    //     clearTimeout(changeMe)
+    //     console.log('stopppeddd')
+    // })
+
+    let intervalId;
+    // VARIABLE USED FOR INTERVAL ID
+
+    function printOnInterval(message){
+        console.log(message, Date.now().toLocaleString())
+    }
+
+    const intervalSetter = function () {
+        console.log('inteval started')
+        intervalId = setInterval(printOnInterval, 1000, "hi")
+    }
+
+    document.getElementById('start').addEventListener('click', intervalSetter)
+
+    document.getElementById('stop').addEventListener('click', function () {
+        clearInterval(intervalId)
+        // needs an interval ID (NOT FUNCTION)
+        console.log('interval stopped')
+    })
+
+</script>
+</html>
